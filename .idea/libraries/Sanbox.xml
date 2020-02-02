@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Sanbox">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Sanbox/build/distributions/Sanbox.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
