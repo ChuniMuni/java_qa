@@ -82,7 +82,7 @@ set CMD_LINE_ARGS=%*
 set CLASSPATH=%APP_HOME%\lib\Sanbox.jar
 
 @rem Execute Sanbox
-"%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %SANBOX_OPTS%  -classpath "%CLASSPATH%" program %CMD_LINE_ARGS%
+"%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %SANBOX_OPTS%  -classpath "%CLASSPATH%" ru.stqa.pft.sanbox.program %CMD_LINE_ARGS%
 
 :end
 @rem End local scope for the variables with windows NT shell
