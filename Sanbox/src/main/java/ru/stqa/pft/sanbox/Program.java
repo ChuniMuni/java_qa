@@ -1,6 +1,6 @@
 package ru.stqa.pft.sanbox;
 
-public class program{
+public class Program {
 	public static void main(String[] args){
 		hello("world");
 		hello("user");

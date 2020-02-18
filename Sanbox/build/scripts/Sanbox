@@ -178,6 +178,6 @@ save () {
 APP_ARGS=`save "$@"`
 
 # Collect all arguments for the java command, following the shell quoting and substitution rules
-eval set -- $DEFAULT_JVM_OPTS $JAVA_OPTS $SANBOX_OPTS -classpath "\"$CLASSPATH\"" ru.stqa.pft.sanbox.program "$APP_ARGS"
+eval set -- $DEFAULT_JVM_OPTS $JAVA_OPTS $SANBOX_OPTS -classpath "\"$CLASSPATH\"" ru.stqa.pft.sanbox.Program "$APP_ARGS"
 
 exec "$JAVACMD" "$@"
