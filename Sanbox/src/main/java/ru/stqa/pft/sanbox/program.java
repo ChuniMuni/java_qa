@@ -5,10 +5,10 @@ public class program{
 		hello("world");
 		hello("user");
 		double len = 7;
-		System.out.println("Сторона квадрата со стороной " + len + " = " + area(len));
+		System.out.println("Площадь квадрата со стороной " + len + " = " + area(len));
 		double a = 7;
 		double b = 5;
-		System.out.println("Сторона прямоугольника со сторонами " + a + " и " + b + " = " + area(a, b));
+		System.out.println("Площадь прямоугольника со сторонами " + a + " и " + b + " = " + area(a, b));
 	}
 
 	public static void hello(String somebody) {
