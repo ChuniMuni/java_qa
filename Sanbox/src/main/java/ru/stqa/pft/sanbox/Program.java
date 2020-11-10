@@ -17,10 +17,9 @@ public class Program {
 		Point p2 = new Point(0,13);
 		System.out.println("Расстояние между точками (" + p1.toString() + ") и (" + p2.toString() + ") = " + p1.distance(p2));
 
-		Scanner sc = new Scanner(System.in);
-		int a = sc.nextInt();
-		int b = sc.nextInt();
-		int c = sc.nextInt();
+		int a = printAndRead("Введите число:");
+		int b = printAndRead("Введите число:");
+		int c = printAndRead("Введите число:");
 
 		if (a + b > c && a + c > b && b + c > a)
 			System.out.println("Треугольник существует.");
@@ -30,5 +29,19 @@ public class Program {
 
 	public static void hello(String somebody) {
 		System.out.println("Hello, " + somebody + "!");
+	}
+
+	public static int printAndRead(String string) {
+		Scanner sc = new Scanner(System.in);
+		while (true) {
+			System.out.print(string);
+
+			if (sc.hasNextInt()) {
+				return sc.nextInt();
+			} else {
+				sc.next();
+				System.out.println("Введено не целое число ");
+			}
+		}
 	}
 }
