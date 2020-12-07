@@ -79,7 +79,7 @@ set CMD_LINE_ARGS=%*
 :execute
 @rem Setup the command line
 
-set CLASSPATH=%APP_HOME%\lib\Sanbox.jar
+set CLASSPATH=%APP_HOME%\lib\Sanbox.jar;%APP_HOME%\lib\testng-7.3.0.jar;%APP_HOME%\lib\kotlin-stdlib-jdk8-1.4.20.jar;%APP_HOME%\lib\jcommander-1.78.jar;%APP_HOME%\lib\ant-1.10.3.jar;%APP_HOME%\lib\junit-4.12.jar;%APP_HOME%\lib\guice-4.2.2-no_aop.jar;%APP_HOME%\lib\snakeyaml-1.21.jar;%APP_HOME%\lib\kotlin-stdlib-jdk7-1.4.20.jar;%APP_HOME%\lib\kotlin-stdlib-1.4.20.jar;%APP_HOME%\lib\ant-launcher-1.10.3.jar;%APP_HOME%\lib\hamcrest-core-1.3.jar;%APP_HOME%\lib\javax.inject-1.jar;%APP_HOME%\lib\aopalliance-1.0.jar;%APP_HOME%\lib\guava-25.1-android.jar;%APP_HOME%\lib\kotlin-stdlib-common-1.4.20.jar;%APP_HOME%\lib\annotations-13.0.jar;%APP_HOME%\lib\jsr305-3.0.2.jar;%APP_HOME%\lib\checker-compat-qual-2.0.0.jar;%APP_HOME%\lib\error_prone_annotations-2.1.3.jar;%APP_HOME%\lib\j2objc-annotations-1.1.jar;%APP_HOME%\lib\animal-sniffer-annotations-1.14.jar
 
 @rem Execute Sanbox
 "%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %SANBOX_OPTS%  -classpath "%CLASSPATH%" ru.stqa.pft.sanbox.Program %CMD_LINE_ARGS%
