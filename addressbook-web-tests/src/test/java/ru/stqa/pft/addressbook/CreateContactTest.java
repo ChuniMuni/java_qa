@@ -74,13 +74,9 @@ public class CreateContactTest {
     driver.findElement(By.name("email3")).sendKeys(contactData.getEmail3());
     driver.findElement(By.name("homepage")).click();
     driver.findElement(By.name("homepage")).sendKeys(contactData.getUrl());
-    bday("1");
-    bmonth("April");
-    byear("1971");
+    birthday("1", "April","1971");
     newGroup("test");
-    aday("1");
-    amonth("April");
-    ayear("1971");
+    anniversary("1", "April","1971");
     driver.findElement(By.name("address2")).click();
     driver.findElement(By.name("address2")).sendKeys(contactData.getAddress2());
     driver.findElement(By.name("theform")).click();
@@ -90,27 +86,38 @@ public class CreateContactTest {
     driver.findElement(By.name("notes")).sendKeys(contactData.getNotes());
   }
 
-  private void ayear(String year) {
-    driver.findElement(By.name("ayear")).click();
-    driver.findElement(By.name("ayear")).sendKeys(year);
-  }
-
-  private void amonth(final String month) {
-    driver.findElement(By.name("amonth")).click();
+  private void birthday(final String day, final String month, String year) {
+    driver.findElement(By.name("bday")).click();
     {
-      WebElement dropdown = driver.findElement(By.name("amonth"));
+      WebElement dropdown = driver.findElement(By.name("bday"));
+      dropdown.findElement(By.xpath("//option[. = '" + day + "']")).click();
+    }
+    driver.findElement(By.cssSelector("select:nth-child(61) > option:nth-child(3)")).click();
+    driver.findElement(By.name("bmonth")).click();
+    {
+      WebElement dropdown = driver.findElement(By.name("bmonth"));
       dropdown.findElement(By.xpath("//option[. = '" + month + "']")).click();
     }
-    driver.findElement(By.cssSelector("select:nth-child(67) > option:nth-child(5)")).click();
+    driver.findElement(By.cssSelector("select:nth-child(62) > option:nth-child(5)")).click();
+    driver.findElement(By.name("byear")).click();
+    driver.findElement(By.name("byear")).sendKeys(year);
   }
 
-  private void aday(final String day) {
+  private void anniversary(final String day, final String month, String year) {
     driver.findElement(By.name("aday")).click();
     {
       WebElement dropdown = driver.findElement(By.name("aday"));
       dropdown.findElement(By.xpath("//option[. = '" + day + "']")).click();
     }
     driver.findElement(By.cssSelector("select:nth-child(66) > option:nth-child(3)")).click();
+    driver.findElement(By.name("amonth")).click();
+    {
+      WebElement dropdown = driver.findElement(By.name("amonth"));
+      dropdown.findElement(By.xpath("//option[. = '" + month + "']")).click();
+    }
+    driver.findElement(By.cssSelector("select:nth-child(67) > option:nth-child(5)")).click();
+    driver.findElement(By.name("ayear")).click();
+    driver.findElement(By.name("ayear")).sendKeys(year);
   }
 
   private void newGroup(final String group) {
@@ -120,29 +127,6 @@ public class CreateContactTest {
       dropdown.findElement(By.xpath("//option[. = '" + group + "']")).click();
     }
     driver.findElement(By.cssSelector("select:nth-child(71) > option:nth-child(2)")).click();
-  }
-
-  private void byear(String year) {
-    driver.findElement(By.name("byear")).click();
-    driver.findElement(By.name("byear")).sendKeys(year);
-  }
-
-  private void bmonth(final String month) {
-    driver.findElement(By.name("bmonth")).click();
-    {
-      WebElement dropdown = driver.findElement(By.name("bmonth"));
-      dropdown.findElement(By.xpath("//option[. = '" + month + "']")).click();
-    }
-    driver.findElement(By.cssSelector("select:nth-child(62) > option:nth-child(5)")).click();
-  }
-
-  private void bday(final String day) {
-    driver.findElement(By.name("bday")).click();
-    {
-      WebElement dropdown = driver.findElement(By.name("bday"));
-      dropdown.findElement(By.xpath("//option[. = '" + day + "']")).click();
-    }
-    driver.findElement(By.cssSelector("select:nth-child(61) > option:nth-child(3)")).click();
   }
 
   private void createNewContact() {
