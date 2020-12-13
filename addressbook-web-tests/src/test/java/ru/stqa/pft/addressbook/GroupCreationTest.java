@@ -3,20 +3,16 @@ package ru.stqa.pft.addressbook;
 import org.junit.Test;
 import org.junit.Before;
 import org.junit.After;
-
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.core.IsNot.not;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
-
 import java.util.*;
 
 public class GroupCreationTest {
   private WebDriver driver;
+  private Map<String, Object> vars;
   JavascriptExecutor js;
 
   @Before
