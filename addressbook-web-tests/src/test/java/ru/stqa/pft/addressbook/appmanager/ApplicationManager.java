@@ -3,13 +3,13 @@ package ru.stqa.pft.addressbook.appmanager;
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import ru.stqa.pft.addressbook.model.ContactData;
-import ru.stqa.pft.addressbook.model.GroupData;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class ApplicationManager {
     public WebDriver driver;
+    private GroupHelper groupHelper;
     JavascriptExecutor js;
     private Map<String, Object> vars;
 
@@ -19,6 +19,7 @@ public class ApplicationManager {
         Map<String, Object> vars = new HashMap<String, Object>();
         driver.get("http://localhost/addressbook/");
         driver.manage().window().setSize(new Dimension(1550, 838));
+        groupHelper = new GroupHelper(driver);
         login("admin", "secret");
     }
 
@@ -31,23 +32,6 @@ public class ApplicationManager {
       driver.findElement(By.cssSelector("input:nth-child(7)")).click();
     }
 
-    public void returnToGroupPage() {
-      driver.findElement(By.linkText("group page")).click();
-    }
-
-    public void submitGroupCreation() {
-      driver.findElement(By.name("submit")).click();
-    }
-
-    public void fillGroupForm(GroupData groupData) {
-      driver.findElement(By.name("group_name")).click();
-      driver.findElement(By.name("group_name")).sendKeys(groupData.getName());
-      driver.findElement(By.name("group_header")).click();
-      driver.findElement(By.name("group_header")).sendKeys(groupData.getHeader());
-      driver.findElement(By.name("group_footer")).click();
-      driver.findElement(By.name("group_footer")).sendKeys(groupData.getFooter());
-    }
-
     public void initGroupCreation() {
       driver.findElement(By.name("new")).click();
     }
@@ -58,14 +42,6 @@ public class ApplicationManager {
 
     public void stop() {
         driver.quit();
-    }
-
-    public void deletionSelectedGroups() {
-      driver.findElement(By.cssSelector("input:nth-child(9)")).click();
-    }
-
-    public void selectGroup() {
-      driver.findElement(By.name("selected[]")).click();
     }
 
     public void addNewContact(ContactData contactData) {
@@ -164,5 +140,9 @@ public class ApplicationManager {
 
     public void returnGroups() {
       driver.findElement(By.linkText("groups")).click();
+    }
+
+    public GroupHelper getGroupHelper() {
+        return groupHelper;
     }
 }
