@@ -9,6 +9,7 @@ import java.util.Map;
 
 public class ApplicationManager {
     public WebDriver driver;
+    private NavigationHelper navigationHelper;
     private GroupHelper groupHelper;
     JavascriptExecutor js;
     private Map<String, Object> vars;
@@ -20,6 +21,7 @@ public class ApplicationManager {
         driver.get("http://localhost/addressbook/");
         driver.manage().window().setSize(new Dimension(1550, 838));
         groupHelper = new GroupHelper(driver);
+        navigationHelper = new NavigationHelper(driver);
         login("admin", "secret");
     }
 
@@ -34,10 +36,6 @@ public class ApplicationManager {
 
     public void initGroupCreation() {
       driver.findElement(By.name("new")).click();
-    }
-
-    public void gotoGroupPage() {
-      driver.findElement(By.linkText("groups")).click();
     }
 
     public void stop() {
@@ -139,10 +137,14 @@ public class ApplicationManager {
     }
 
     public void returnGroups() {
-      driver.findElement(By.linkText("groups")).click();
+        navigationHelper.gotoGroupPage();
     }
 
     public GroupHelper getGroupHelper() {
         return groupHelper;
+    }
+
+    public NavigationHelper getNavigationHelper() {
+        return navigationHelper;
     }
 }

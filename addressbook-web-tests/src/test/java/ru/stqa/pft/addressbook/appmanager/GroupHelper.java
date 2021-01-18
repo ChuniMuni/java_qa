@@ -29,7 +29,7 @@ public class GroupHelper {
     }
 
     public void deletionSelectedGroups() {
-      driver.findElement(By.cssSelector("input:nth-child(9)")).click();
+      driver.findElement(By.cssSelector("input:nth-child(12)")).click();
     }
 
     public void selectGroup() {
