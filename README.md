@@ -1,2 +1,2 @@
 # java_qa
-autotest for java
+java autotest for addressbook
