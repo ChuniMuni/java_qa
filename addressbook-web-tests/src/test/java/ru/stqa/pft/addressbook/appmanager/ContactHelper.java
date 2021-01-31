@@ -5,100 +5,100 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import ru.stqa.pft.addressbook.model.ContactData;
 
-public class ContactHelper {
-    private WebDriver driver;
+public class ContactHelper extends HelperBase {
 
   public ContactHelper(WebDriver driver) {
-    this.driver = driver;
+      super(driver);
   }
 
   public void addNewContact(ContactData contactData) {
-      driver.findElement(By.name("firstname")).click();
-      driver.findElement(By.name("firstname")).sendKeys(contactData.getFirstname());
-      driver.findElement(By.name("middlename")).click();
-      driver.findElement(By.name("middlename")).sendKeys(contactData.getMidllename());
-      driver.findElement(By.name("lastname")).click();
-      driver.findElement(By.name("lastname")).sendKeys(contactData.getLastname());
-      driver.findElement(By.name("nickname")).click();
-      driver.findElement(By.name("nickname")).sendKeys(contactData.getNick());
-      driver.findElement(By.name("title")).click();
-      driver.findElement(By.name("title")).sendKeys(contactData.getTitle());
-      driver.findElement(By.name("company")).click();
-      driver.findElement(By.name("company")).sendKeys(contactData.getCompany());
-      driver.findElement(By.name("address")).click();
-      driver.findElement(By.name("address")).sendKeys(contactData.getAddress());
-      driver.findElement(By.name("home")).click();
-      driver.findElement(By.name("home")).sendKeys(contactData.getTel1());
-      driver.findElement(By.name("mobile")).click();
-      driver.findElement(By.name("mobile")).sendKeys(contactData.getTel2());
-      driver.findElement(By.name("work")).click();
-      driver.findElement(By.name("work")).sendKeys(contactData.getTel3());
-      driver.findElement(By.name("fax")).click();
-      driver.findElement(By.name("fax")).sendKeys(contactData.getTel4());
-      driver.findElement(By.name("email")).click();
-      driver.findElement(By.name("email")).sendKeys(contactData.getEmail1());
-      driver.findElement(By.name("email2")).click();
-      driver.findElement(By.name("email2")).sendKeys(contactData.getEmail2());
-      driver.findElement(By.name("email3")).click();
-      driver.findElement(By.name("email3")).sendKeys(contactData.getEmail3());
-      driver.findElement(By.name("homepage")).click();
-      driver.findElement(By.name("homepage")).sendKeys(contactData.getUrl());
+      click(By.name("firstname"));
+      type(contactData.getFirstname(), By.name("firstname"));
+      click(By.name("middlename"));
+      type(contactData.getMidllename(), By.name("middlename"));
+      click(By.name("lastname"));
+      type(contactData.getLastname(), By.name("lastname"));
+      click(By.name("nickname"));
+      type(contactData.getNick(), By.name("nickname"));
+      click(By.name("title"));
+      type(contactData.getTitle(), By.name("title"));
+      click(By.name("company"));
+      type(contactData.getCompany(), By.name("company"));
+      click(By.name("address"));
+      type(contactData.getAddress(), By.name("address"));
+      click(By.name("home"));
+      type(contactData.getTel1(), By.name("home"));
+      click(By.name("mobile"));
+      type(contactData.getTel2(), By.name("mobile"));
+      click(By.name("work"));
+      type(contactData.getTel3(), By.name("work"));
+      click(By.name("fax"));
+      type(contactData.getTel4(), By.name("fax"));
+      click(By.name("email"));
+      type(contactData.getEmail1(), By.name("email"));
+      click(By.name("email2"));
+      type(contactData.getEmail2(), By.name("email2"));
+      click(By.name("email3"));
+      type(contactData.getEmail3(), By.name("email3"));
+      click(By.name("homepage"));
+      type(contactData.getUrl(), By.name("homepage"));
       birthday("1", "April","1971");
       newGroup("test");
       anniversary("1", "April","1971");
-      driver.findElement(By.name("address2")).click();
-      driver.findElement(By.name("address2")).sendKeys(contactData.getAddress2());
-      driver.findElement(By.name("theform")).click();
-      driver.findElement(By.name("phone2")).click();
-      driver.findElement(By.name("phone2")).sendKeys(contactData.getPhone2());
-      driver.findElement(By.name("notes")).click();
-      driver.findElement(By.name("notes")).sendKeys(contactData.getNotes());
+      click(By.name("address2"));
+      type(contactData.getAddress2(), By.name("address2"));
+      click(By.name("theform"));
+      click(By.name("phone2"));
+      type(contactData.getPhone2(), By.name("phone2"));
+      click(By.name("notes"));
+      type(contactData.getNotes(), By.name("notes"));
     }
 
     private void birthday(final String day, final String month, String year) {
-      driver.findElement(By.name("bday")).click();
+      click(By.name("bday"));
       {
-        WebElement dropdown = driver.findElement(By.name("bday"));
+        WebElement dropdown = find("bday");
         dropdown.findElement(By.xpath("//option[. = '" + day + "']")).click();
       }
-      driver.findElement(By.cssSelector("select:nth-child(61) > option:nth-child(3)")).click();
-      driver.findElement(By.name("bmonth")).click();
+      click(By.cssSelector("select:nth-child(61) > option:nth-child(3)"));
+      click(By.name("bmonth"));
       {
-        WebElement dropdown = driver.findElement(By.name("bmonth"));
+        WebElement dropdown = find("bmonth");
         dropdown.findElement(By.xpath("//option[. = '" + month + "']")).click();
       }
-      driver.findElement(By.cssSelector("select:nth-child(62) > option:nth-child(5)")).click();
-      driver.findElement(By.name("byear")).click();
-      driver.findElement(By.name("byear")).sendKeys(year);
+      click(By.cssSelector("select:nth-child(62) > option:nth-child(5)"));
+      click(By.name("byear"));
+      type(year, By.name("byear"));
     }
 
     private void anniversary(final String day, final String month, String year) {
-      driver.findElement(By.name("aday")).click();
+      click(By.name("aday"));
       {
-        WebElement dropdown = driver.findElement(By.name("aday"));
+        WebElement dropdown = find("aday");
         dropdown.findElement(By.xpath("//option[. = '" + day + "']")).click();
       }
-      driver.findElement(By.cssSelector("select:nth-child(66) > option:nth-child(3)")).click();
-      driver.findElement(By.name("amonth")).click();
+      click(By.cssSelector("select:nth-child(66) > option:nth-child(3)"));
+      click(By.name("amonth"));
       {
-        WebElement dropdown = driver.findElement(By.name("amonth"));
+        WebElement dropdown = find("amonth");
         dropdown.findElement(By.xpath("//option[. = '" + month + "']")).click();
       }
-      driver.findElement(By.cssSelector("select:nth-child(67) > option:nth-child(5)")).click();
-      driver.findElement(By.name("ayear")).click();
-      driver.findElement(By.name("ayear")).sendKeys(year);
+      click(By.cssSelector("select:nth-child(67) > option:nth-child(5)"));
+      click(By.name("ayear"));
+      type(year, By.name("ayear"));
     }
 
     public void createNewContact() {
-      driver.findElement(By.cssSelector("input:nth-child(87)")).click();
+      click(By.cssSelector("input:nth-child(87)"));
     }
 
     public void newGroup(final String group) {
-        driver.findElement(By.name("new_group")).click();
+      click(By.name("new_group"));
         {
-            WebElement dropdown = driver.findElement(By.name("new_group"));
+            WebElement dropdown = find("new_group");
             dropdown.findElement(By.xpath("//option[. = '" + group + "']")).click();
         }
-        driver.findElement(By.cssSelector("select:nth-child(71) > option:nth-child(2)")).click();
+        click(By.cssSelector("select:nth-child(71) > option:nth-child(2)"));
     }
+
 }
