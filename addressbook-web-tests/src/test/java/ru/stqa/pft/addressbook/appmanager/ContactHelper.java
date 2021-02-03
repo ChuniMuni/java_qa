@@ -101,4 +101,16 @@ public class ContactHelper extends HelperBase {
         click(By.cssSelector("select:nth-child(71) > option:nth-child(2)"));
     }
 
+    public void selectContact() {
+      click(By.xpath("//input[contains(@type,'checkbox')]"));
+    }
+
+    public void deleteContact() {
+      click(By.cssSelector(".left:nth-child(8) > input"));
+      confirm();
+    }
+
+    private void confirm() {
+        driver.switchTo().alert().accept();
+    }
 }
