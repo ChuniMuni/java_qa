@@ -19,13 +19,16 @@ public class GroupHelper extends HelperBase {
     }
 
     public void fillGroupForm(GroupData groupData) {
+        clear(By.name("group_name"));
         type(groupData.getName(), By.name("group_name"));
+        clear(By.name("group_header"));
         type(groupData.getHeader(), By.name("group_header"));
+        clear(By.name("group_footer"));
         type(groupData.getFooter(), By.name("group_footer"));
     }
 
     public void deletionSelectedGroups() {
-        click(By.cssSelector("input:nth-child(13)"));
+        click(By.cssSelector("input:nth-child(11)"));
     }
 
     public void selectGroup() {
