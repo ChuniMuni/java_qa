@@ -57,9 +57,10 @@ public class ContactHelper extends HelperBase {
       click(By.name("homepage"));
       clear(By.name("homepage"));
       type(contactData.getUrl(), By.name("homepage"));
-      birthday("1", "April","1971");
-      anniversary("1", "April","1971");
-      newGroup("test");
+      //TODO Актуализировать для создания и модификации контакта.
+      // birthday("1", "April","1971");
+      // anniversary("1", "April","1971");
+      // newGroup("test");
       click(By.name("address2"));
       clear(By.name("address2"));
       type(contactData.getAddress2(), By.name("address2"));
