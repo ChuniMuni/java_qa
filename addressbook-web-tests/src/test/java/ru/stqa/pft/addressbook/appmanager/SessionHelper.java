@@ -14,5 +14,9 @@ public class SessionHelper extends HelperBase {
         type(password, By.name("pass"));
         click(By.cssSelector("input:nth-child(7)"));
     }
+
+    void logout() {
+        click(By.linkText("Logout"));
+    }
 }
 

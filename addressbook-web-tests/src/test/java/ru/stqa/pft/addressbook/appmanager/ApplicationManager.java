@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class ApplicationManager {
     public WebDriver driver;
-    private SessionHelper sessionHelper;
+    public SessionHelper sessionHelper;
     private GroupHelper groupHelper;
     private ContactHelper contactHelper;
     private NavigationHelper navigationHelper;
@@ -33,6 +33,7 @@ public class ApplicationManager {
     }
 
     public void stop() {
+        sessionHelper.logout();
         driver.quit();
     }
 
