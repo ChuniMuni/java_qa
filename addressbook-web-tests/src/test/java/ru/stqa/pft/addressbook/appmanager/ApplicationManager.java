@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class ApplicationManager {
     public WebDriver driver;
-    public SessionHelper sessionHelper;
+    private SessionHelper sessionHelper;
     private GroupHelper groupHelper;
     private ContactHelper contactHelper;
     private NavigationHelper navigationHelper;
