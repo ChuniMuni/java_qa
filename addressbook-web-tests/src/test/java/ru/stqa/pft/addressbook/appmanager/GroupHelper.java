@@ -28,7 +28,7 @@ public class GroupHelper extends HelperBase {
     }
 
     public void deletionSelectedGroups() {
-        click(By.cssSelector("input:nth-child(12)"));
+        click(By.xpath("//input[@name='delete']"));
     }
 
     public void selectGroup() {
