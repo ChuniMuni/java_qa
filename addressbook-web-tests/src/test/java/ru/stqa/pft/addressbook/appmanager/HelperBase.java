@@ -1,8 +1,6 @@
 package ru.stqa.pft.addressbook.appmanager;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 
 public class HelperBase {
     protected WebDriver driver;
@@ -30,7 +28,25 @@ public class HelperBase {
         }
     }
 
+    public boolean isAlertPresent() {
+        try {
+            driver.switchTo().alert();
+            return true;
+        } catch (NoAlertPresentException e) {
+            return false;
+        }
+    }
+
     protected WebElement find(String name) {
         return driver.findElement(By.name(name));
+    }
+
+    protected boolean isElementPresent(By locator) {
+      try {
+          driver.findElement(locator);
+          return true;
+      } catch (NoSuchElementException ex) {
+          return false;
+      }
     }
 }

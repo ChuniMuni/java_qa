@@ -3,6 +3,7 @@ package ru.stqa.pft.addressbook.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
 
 public class ContactHelper extends HelperBase {
@@ -11,7 +12,7 @@ public class ContactHelper extends HelperBase {
       super(driver);
   }
 
-  public void addNewContact(ContactData contactData) {
+  public void addNewContact(ContactData contactData, boolean creation) {
       click(By.name("firstname"));
       type(contactData.getFirstname(), By.name("firstname"));
       click(By.name("middlename"));
@@ -45,7 +46,7 @@ public class ContactHelper extends HelperBase {
       //TODO Актуализировать для создания и модификации контакта.
       // birthday("1", "April","1971");
       // anniversary("1", "April","1971");
-      // newGroup("test");
+      newGroup("test", creation);
       click(By.name("address2"));
       type(contactData.getAddress2(), By.name("address2"));
       click(By.name("phone2"));
@@ -100,13 +101,17 @@ public class ContactHelper extends HelperBase {
         click(By.cssSelector("tr:nth-child(2) > .center:nth-child(8) img"));
     }
 
-    public void newGroup(final String group) {
-      click(By.name("new_group"));
-        {
-            WebElement dropdown = find("new_group");
-            dropdown.findElement(By.xpath("//option[. = '" + group + "']")).click();
+    public void newGroup(final String group, boolean creation) {
+        if (creation) {
+            click(By.name("new_group"));
+            {
+                WebElement dropdown = find("new_group");
+                dropdown.findElement(By.xpath("//option[. = '" + group + "']")).click();
+            }
+            click(By.cssSelector("select:nth-child(71) > option:nth-child(2)"));
+        } else {
+            Assert.assertFalse(isElementPresent(By.name("new_group")));
         }
-        click(By.cssSelector("select:nth-child(71) > option:nth-child(2)"));
     }
 
     public void selectContact() {

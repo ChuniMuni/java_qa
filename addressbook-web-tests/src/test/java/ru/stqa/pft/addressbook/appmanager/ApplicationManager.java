@@ -8,6 +8,7 @@ import org.openqa.selenium.remote.BrowserType;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 public class ApplicationManager {
     public WebDriver driver;
@@ -32,6 +33,7 @@ public class ApplicationManager {
         } else if (browser.equals(BrowserType.IE)) {
             driver = new InternetExplorerDriver();
         }
+        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         js = (JavascriptExecutor) driver;
         Map<String, Object> vars = new HashMap<String, Object>();
         driver.get("http://localhost/addressbook/");
