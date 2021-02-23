@@ -8,7 +8,9 @@ import ru.stqa.pft.addressbook.model.ContactData;
 
 public class ContactHelper extends HelperBase {
 
-  public ContactHelper(WebDriver driver) {
+    private ContactData contact;
+
+    public ContactHelper(WebDriver driver) {
       super(driver);
   }
 
@@ -115,7 +117,7 @@ public class ContactHelper extends HelperBase {
     }
 
     public void selectContact() {
-      click(By.xpath("//input[contains(@type,'checkbox')]"));
+        click(By.name("selected[]"));
     }
 
     public void deleteContact() {
@@ -125,5 +127,14 @@ public class ContactHelper extends HelperBase {
 
     private void confirm() {
         driver.switchTo().alert().accept();
+    }
+
+    public void createContact(ContactData contact) {
+        addNewContact(contact, true);
+        createNewContact();
+    }
+
+    public boolean isThereAContact() {
+        return isElementPresent(By.xpath("(//input[@name='selected[]'])"));
     }
 }

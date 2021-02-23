@@ -24,4 +24,8 @@ public class NavigationHelper extends HelperBase {
         }
         click(By.linkText("home"));
     }
+
+    public void gotoNewContactPage() {
+        driver.findElement(By.linkText("add new")).click();
+    }
 }

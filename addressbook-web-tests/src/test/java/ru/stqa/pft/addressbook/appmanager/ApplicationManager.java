@@ -50,10 +50,6 @@ public class ApplicationManager {
         driver.quit();
     }
 
-    public void gotoNewContactPage() {
-      driver.findElement(By.linkText("add new")).click();
-    }
-
     public void returnGroups() {
         navigationHelper.gotoGroupPage();
     }
