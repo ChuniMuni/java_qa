@@ -13,62 +13,44 @@ public class ContactHelper extends HelperBase {
 
   public void addNewContact(ContactData contactData) {
       click(By.name("firstname"));
-      clear(By.name("firstname"));
       type(contactData.getFirstname(), By.name("firstname"));
       click(By.name("middlename"));
-      clear(By.name("middlename"));
       type(contactData.getMidllename(), By.name("middlename"));
       click(By.name("lastname"));
-      clear(By.name("lastname"));
       type(contactData.getLastname(), By.name("lastname"));
       click(By.name("nickname"));
-      clear(By.name("nickname"));
       type(contactData.getNick(), By.name("nickname"));
       click(By.name("title"));
-      clear(By.name("title"));
       type(contactData.getTitle(), By.name("title"));
       click(By.name("company"));
-      clear(By.name("company"));
       type(contactData.getCompany(), By.name("company"));
       click(By.name("address"));
-      clear(By.name("address"));
       type(contactData.getAddress(), By.name("address"));
       click(By.name("home"));
-      clear(By.name("home"));
       type(contactData.getTel1(), By.name("home"));
       click(By.name("mobile"));
-      clear(By.name("mobile"));
       type(contactData.getTel2(), By.name("mobile"));
       click(By.name("work"));
-      clear(By.name("work"));
       type(contactData.getTel3(), By.name("work"));
       click(By.name("fax"));
-      clear(By.name("fax"));
       type(contactData.getTel4(), By.name("fax"));
       click(By.name("email"));
-      clear(By.name("email"));
       type(contactData.getEmail1(), By.name("email"));
       click(By.name("email2"));
-      clear(By.name("email2"));
       type(contactData.getEmail2(), By.name("email2"));
       click(By.name("email3"));
-      clear(By.name("email3"));
       type(contactData.getEmail3(), By.name("email3"));
       click(By.name("homepage"));
-      clear(By.name("homepage"));
       type(contactData.getUrl(), By.name("homepage"));
       //TODO Актуализировать для создания и модификации контакта.
       // birthday("1", "April","1971");
       // anniversary("1", "April","1971");
       // newGroup("test");
       click(By.name("address2"));
-      clear(By.name("address2"));
       type(contactData.getAddress2(), By.name("address2"));
       click(By.name("phone2"));
-      clear(By.name("phone2"));
       type(contactData.getPhone2(), By.name("phone2"));
       click(By.name("notes"));
-      clear(By.name("notes"));
       type(contactData.getNotes(), By.name("notes"));
     }
 

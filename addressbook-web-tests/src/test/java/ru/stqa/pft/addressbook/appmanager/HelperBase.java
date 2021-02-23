@@ -21,7 +21,13 @@ public class HelperBase {
 
     protected void type(String text, By locator) {
         click(locator);
-        driver.findElement(locator).sendKeys(text);
+        if (text != null) {
+            String existingText = driver.findElement(locator).getAttribute("value");
+            if (! text.equals(existingText)) {
+                driver.findElement(locator).clear();
+                driver.findElement(locator).sendKeys(text);
+            }
+        }
     }
 
     protected WebElement find(String name) {
