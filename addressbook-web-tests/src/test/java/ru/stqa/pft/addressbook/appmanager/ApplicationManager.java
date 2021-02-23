@@ -33,7 +33,7 @@ public class ApplicationManager {
         } else if (browser.equals(BrowserType.IE)) {
             driver = new InternetExplorerDriver();
         }
-        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
         js = (JavascriptExecutor) driver;
         Map<String, Object> vars = new HashMap<String, Object>();
         driver.get("http://localhost/addressbook/");
