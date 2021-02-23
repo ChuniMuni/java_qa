@@ -24,6 +24,10 @@ public class GroupHelper extends HelperBase {
         type(groupData.getFooter(), By.name("group_footer"));
     }
 
+    public void initGroupCreation() {
+        driver.findElement(By.name("new")).click();
+    }
+
     public void deletionSelectedGroups() {
         click(By.xpath("//input[@name='delete']"));
     }
@@ -38,5 +42,16 @@ public class GroupHelper extends HelperBase {
 
     public void submitGroupModification() {
         click(By.name("update"));
+    }
+
+    public void createGroup(GroupData group) {
+        initGroupCreation();
+        fillGroupForm(group);
+        submitGroupCreation();
+        returnToGroupPage();
+    }
+
+    public boolean isThereAGroup() {
+        return isElementPresent(By.name("selected[]"));
     }
 }

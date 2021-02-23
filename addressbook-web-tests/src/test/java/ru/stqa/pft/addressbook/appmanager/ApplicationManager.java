@@ -45,10 +45,6 @@ public class ApplicationManager {
         sessionHelper.login("admin", "secret");
     }
 
-    public void initGroupCreation() {
-      driver.findElement(By.name("new")).click();
-    }
-
     public void stop() {
         sessionHelper.logout();
         driver.quit();
