@@ -4,6 +4,8 @@ import org.junit.Assert;
 import org.junit.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
 
+import java.util.List;
+
 public class ContactDeleteTest extends TestBase {
 
     @Test
@@ -14,11 +16,11 @@ public class ContactDeleteTest extends TestBase {
                     ("Ivan", "Ivanovich", "Ivanov", "ChuniMuni", "User", "Home", "Nignie Vasuki", "22322332", "+7809332222", "+4959993322", "+4959992233", "test@gmail.com", "test1@gmail.com", "test2@gmail.com", "http://localhost/addressbook/", "test", "Verhnie Vasuki", "Home", "Test"));
         }
         app.getNavigationHelper().returnHomePage();
-        int before = app.getContactHelper().getContactCount();
+        List<ContactData> before = app.getContactHelper().getContactList();
         app.getContactHelper().selectContact();
         app.getContactHelper().deleteContact();
         app.getNavigationHelper().returnHomePage();
-        int after = app.getContactHelper().getContactCount();
-        Assert.assertEquals(after - 1, before - 1);
+        List<ContactData> after = app.getContactHelper().getContactList();
+        Assert.assertEquals(after.size() - 1, before.size() - 1);
     }
 }
