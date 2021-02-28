@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
 
+import java.util.HashSet;
 import java.util.List;
 
 public class ContactModificationTest extends TestBase {
@@ -17,11 +18,19 @@ public class ContactModificationTest extends TestBase {
         }
         app.getNavigationHelper().returnHomePage();
         List<ContactData> before = app.getContactHelper().getContactList();
+        app.getContactHelper().selectContact(before.size() - 1);
         app.getContactHelper().editContact();
-        app.getContactHelper().addNewContact(new ContactData("Petr", "Sidirivich", "Stepanov", "Gerald", "User2", "Home2", "Verhnie Vasuki", "22322332", "+76543645645", "+49545646456", "+495775675", "modify@gmail.com", "modify1@gmail.com", "modify2@gmail.com", "http://localhost/addressbook/", null, "Nichnie Vasuki", "Home3", "Test2"), false);
+        ContactData contact = new ContactData(before.get(before.size() - 1).getId(),"Petr", "Petrovich", "Stepanov", "Gerald", "User2", "Home2", "Verhnie Vasuki", "22322332", "+76543645645", "+49545646456", "+495775675", "modify@gmail.com", "modify1@gmail.com", "modify2@gmail.com", "http://localhost/addressbook/", null, "Nichnie Vasuki", "Home3", "Test2");
+        app.getContactHelper().addNewContact(contact, false);
         app.getContactHelper().updateNewContact();
         app.getNavigationHelper().returnHomePage();
         List<ContactData> after = app.getContactHelper().getContactList();
         Assert.assertEquals(after.size(), before.size());
+
+        before.remove(before.size() - 1);
+        before.add(contact);
+        System.out.println(new HashSet<>(before));
+        System.out.println(new HashSet<>(after));
+        Assert.assertEquals(new HashSet<>(before), new HashSet<>(after));
     }
 }

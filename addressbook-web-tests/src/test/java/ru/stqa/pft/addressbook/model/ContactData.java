@@ -1,6 +1,7 @@
 package ru.stqa.pft.addressbook.model;
 
 public class ContactData {
+    private final String id;
     private final String firstname;
     private final String midllename;
     private final String lastname;
@@ -22,6 +23,7 @@ public class ContactData {
     private final String notes;
 
     public ContactData(String firstname, String midllename, String lastname, String nick, String title, String company, String address, String tel1, String tel2, String tel3, String tel4, String email1, String email2, String email3, String url, String group, String address2, String phone2, String notes) {
+        this.id = null;
         this.firstname = firstname;
         this.midllename = midllename;
         this.lastname = lastname;
@@ -42,6 +44,31 @@ public class ContactData {
         this.phone2 = phone2;
         this.notes = notes;
     }
+
+    public ContactData(String id, String firstname, String midllename, String lastname, String nick, String title, String company, String address, String tel1, String tel2, String tel3, String tel4, String email1, String email2, String email3, String url, String group, String address2, String phone2, String notes) {
+        this.id = id;
+        this.firstname = firstname;
+        this.midllename = midllename;
+        this.lastname = lastname;
+        this.nick = nick;
+        this.title = title;
+        this.company = company;
+        this.address = address;
+        this.tel1 = tel1;
+        this.tel2 = tel2;
+        this.tel3 = tel3;
+        this.tel4 = tel4;
+        this.email1 = email1;
+        this.email2 = email2;
+        this.email3 = email3;
+        this.url = url;
+        this.group = group;
+        this.address2 = address2;
+        this.phone2 = phone2;
+        this.notes = notes;
+    }
+
+    public String getId() { return id; }
 
     public String getFirstname() {
         return firstname;
@@ -122,8 +149,9 @@ public class ContactData {
     @Override
     public String toString() {
         return "ContactData{" +
-                "firstName='" + firstname + '\'' +
-                ", lastName='" + lastname + '\'' +
+                "id='" + id + '\'' +
+                ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
                 '}';
     }
 
@@ -134,13 +162,15 @@ public class ContactData {
 
         ContactData that = (ContactData) o;
 
+        if (id != null ? !id.equals(that.id) : that.id != null) return false;
         if (firstname != null ? !firstname.equals(that.firstname) : that.firstname != null) return false;
         return lastname != null ? lastname.equals(that.lastname) : that.lastname == null;
     }
 
     @Override
     public int hashCode() {
-        int result = firstname != null ? firstname.hashCode() : 0;
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (firstname != null ? firstname.hashCode() : 0);
         result = 31 * result + (lastname != null ? lastname.hashCode() : 0);
         return result;
     }
