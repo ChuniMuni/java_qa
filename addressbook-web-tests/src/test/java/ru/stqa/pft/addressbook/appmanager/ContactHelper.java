@@ -119,8 +119,8 @@ public class ContactHelper extends HelperBase {
         }
     }
 
-    public void selectContact() {
-        click(By.name("selected[]"));
+    public void selectContact(int index) {
+        driver.findElements(By.name("selected[]")).get(index).click();
     }
 
     public void deleteContact() {
@@ -147,12 +147,14 @@ public class ContactHelper extends HelperBase {
 
     public List<ContactData> getContactList() {
         List<ContactData> contacts = new ArrayList<ContactData>();
-        List<WebElement> elemets = driver.findElements(By.cssSelector("tr[name='entry']"));
-        for (WebElement element : elemets) {
-            String firstname = element.getText();
+        List<WebElement> elements = driver.findElements(By.cssSelector("tr[name='entry']"));
+        for(WebElement element : elements){
+            String firstname = element.getTagName();
+            String lastname = element.getTagName();
             ContactData contact = new ContactData(firstname, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
             contacts.add(contact);
         }
+
         return contacts;
     }
 }
