@@ -31,6 +31,6 @@ public class ContactModificationTest extends TestBase {
         before.add(contact);
         System.out.println(new HashSet<>(before));
         System.out.println(new HashSet<>(after));
-        Assert.assertEquals(new HashSet<>(before), new HashSet<>(after));
+        Assert.assertEquals(new HashSet<Object>(before), new HashSet<Object>(after));
     }
 }
