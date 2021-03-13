@@ -14,8 +14,7 @@ public class ContactModificationTest extends TestBase {
     public void ensurePreconditions() {
         if (app.contact().list().size() == 0) {
             app.goTo().newContactPage();
-            app.contact().create(new ContactData
-                    ("Ivan", "Ivanovich", "Ivanov", "ChuniMuni", "User", "Home", "Nignie Vasuki", "22322332", "+7809332222", "+4959993322", "+4959992233", "test@gmail.com", "test1@gmail.com", "test2@gmail.com", "http://localhost/addressbook/", "test", "Verhnie Vasuki", "Home", "Test"));
+            app.contact().create(new ContactData().withFirstname("Ivan").withMidllename("Ivanovich").withLastname("Ivanov").withNick("ChuniMuni").withTitle("User").withCompany("Home").withAddress("Nignie Vasuki").withTel1("22322332").withTel2("+7809332222").withTel3("+4959993322").withTel4("+4959992233").withEmail1("test@gmail.com").withEmail2("test1@gmail.com").withEmail3("test2@gmail.com").withUrl("http://localhost/addressbook/").withGroup("test").withAddress2("Verhnie Vasuki").withPhone2("+4959992233").withNotes("Test"));
         }
     }
 
@@ -24,7 +23,7 @@ public class ContactModificationTest extends TestBase {
         app.goTo().homePage();
         List<ContactData> before = app.contact().list();
         int index = before.size() - 1;
-        ContactData contact = new ContactData(before.get(index).getId(),"Ivan", "Petrovich", "Ivanov", "Gerald", "User2", "Home2", "Verhnie Vasuki", "22322332", "+76543645645", "+49545646456", "+495775675", "modify@gmail.com", "modify1@gmail.com", "modify2@gmail.com", "http://localhost/addressbook/", null, "Nichnie Vasuki", "Home3", "Test2");
+        ContactData contact = new ContactData().withId(before.get(index).getId()).withFirstname("Ivan").withMidllename("Petrovich").withLastname("Ivanov").withNick("Gerald").withTitle("User2").withCompany("Home2").withAddress("Verhnie Vasuki").withTel1("+75656566665").withTel2("+7586756786856").withTel3("+4955687678").withTel4("+4956575676").withEmail1("modify@gmail.com").withEmail2("modify1@gmail.com").withEmail3("modify2@gmail.com").withUrl("http://localhost:8080").withAddress2("Nignie Vasuki").withPhone2("+495454777").withNotes("Modify");
         app.contact().modify(index, contact);
         app.goTo().homePage();
         List<ContactData> after = app.contact().list();

@@ -1,76 +1,28 @@
 package ru.stqa.pft.addressbook.model;
 
 public class ContactData {
-    private int id;
-    private final String firstname;
-    private final String midllename;
-    private final String lastname;
-    private final String nick;
-    private final String title;
-    private final String company;
-    private final String address;
-    private final String tel1;
-    private final String tel2;
-    private final String tel3;
-    private final String tel4;
-    private final String email1;
-    private final String email2;
-    private final String email3;
-    private final String url;
+    private int id = Integer.MAX_VALUE;
+    private String firstname;
+    private String midllename;
+    private String lastname;
+    private String nick;
+    private String title;
+    private String company;
+    private String address;
+    private String tel1;
+    private String tel2;
+    private String tel3;
+    private String tel4;
+    private String email1;
+    private String email2;
+    private String email3;
+    private String url;
     private String group;
-    private final String address2;
-    private final String phone2;
-    private final String notes;
-
-    public ContactData(String firstname, String midllename, String lastname, String nick, String title, String company, String address, String tel1, String tel2, String tel3, String tel4, String email1, String email2, String email3, String url, String group, String address2, String phone2, String notes) {
-        this.id = Integer.MAX_VALUE;
-        this.firstname = firstname;
-        this.midllename = midllename;
-        this.lastname = lastname;
-        this.nick = nick;
-        this.title = title;
-        this.company = company;
-        this.address = address;
-        this.tel1 = tel1;
-        this.tel2 = tel2;
-        this.tel3 = tel3;
-        this.tel4 = tel4;
-        this.email1 = email1;
-        this.email2 = email2;
-        this.email3 = email3;
-        this.url = url;
-        this.group = group;
-        this.address2 = address2;
-        this.phone2 = phone2;
-        this.notes = notes;
-    }
-
-    public ContactData(int id, String firstname, String midllename, String lastname, String nick, String title, String company, String address, String tel1, String tel2, String tel3, String tel4, String email1, String email2, String email3, String url, String group, String address2, String phone2, String notes) {
-        this.id = id;
-        this.firstname = firstname;
-        this.midllename = midllename;
-        this.lastname = lastname;
-        this.nick = nick;
-        this.title = title;
-        this.company = company;
-        this.address = address;
-        this.tel1 = tel1;
-        this.tel2 = tel2;
-        this.tel3 = tel3;
-        this.tel4 = tel4;
-        this.email1 = email1;
-        this.email2 = email2;
-        this.email3 = email3;
-        this.url = url;
-        this.group = group;
-        this.address2 = address2;
-        this.phone2 = phone2;
-        this.notes = notes;
-    }
+    private String address2;
+    private String phone2;
+    private String notes;
 
     public int getId() { return id; }
-
-    public void setId(int id) { this.id = id; }
 
     public String getFirstname() {
         return firstname;
@@ -146,6 +98,106 @@ public class ContactData {
 
     public String getNotes() {
         return notes;
+    }
+
+    public ContactData withId(int id) {
+        this.id = id;
+        return this;
+    }
+
+    public ContactData withFirstname(String firstname) {
+        this.firstname = firstname;
+        return this;
+    }
+
+    public ContactData withMidllename(String midllename) {
+        this.midllename = midllename;
+        return this;
+    }
+
+    public ContactData withLastname(String lastname) {
+        this.lastname = lastname;
+        return this;
+    }
+
+    public ContactData withNick(String nick) {
+        this.nick = nick;
+        return this;
+    }
+
+    public ContactData withTitle(String title) {
+        this.title = title;
+        return this;
+    }
+
+    public ContactData withCompany(String company) {
+        this.company = company;
+        return this;
+    }
+
+    public ContactData withAddress(String address) {
+        this.address = address;
+        return this;
+    }
+
+    public ContactData withTel1(String tel1) {
+        this.tel1 = tel1;
+        return this;
+    }
+
+    public ContactData withTel2(String tel2) {
+        this.tel2 = tel2;
+        return this;
+    }
+
+    public ContactData withTel3(String tel3) {
+        this.tel3 = tel3;
+        return this;
+    }
+
+    public ContactData withTel4(String tel4) {
+        this.tel4 = tel4;
+        return this;
+    }
+
+    public ContactData withEmail1(String email1) {
+        this.email1 = email1;
+        return this;
+    }
+
+    public ContactData withEmail2(String email2) {
+        this.email2 = email2;
+        return this;
+    }
+
+    public ContactData withEmail3(String email3) {
+        this.email3 = email3;
+        return this;
+    }
+
+    public ContactData withUrl(String url) {
+        this.url = url;
+        return this;
+    }
+
+    public ContactData withGroup(String group) {
+        this.group = group;
+        return this;
+    }
+
+    public ContactData withAddress2(String address2) {
+        this.address2 = address2;
+        return this;
+    }
+
+    public ContactData withPhone2(String phone2) {
+        this.phone2 = phone2;
+        return this;
+    }
+
+    public ContactData withNotes(String notes) {
+        this.notes = notes;
+        return this;
     }
 
     @Override
