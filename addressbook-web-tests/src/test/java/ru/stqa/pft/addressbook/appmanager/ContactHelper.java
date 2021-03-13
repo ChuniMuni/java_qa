@@ -131,15 +131,20 @@ public class ContactHelper extends HelperBase {
         driver.switchTo().alert().accept();
     }
 
-    public void createContact(ContactData contact) {
+    public void create(ContactData contact) {
         addNewContact(contact, true);
         createNewContact();
     }
 
-    public void modifyContact(int index, ContactData contact) {
+    public void modify(int index, ContactData contact) {
         selectContact(index);
         addNewContact(contact, false);
         updateNewContact();
+    }
+
+    public void delete(int index) {
+        selectContact(index);
+        deleteContact();
     }
 
     public boolean isThereAContact() {
@@ -150,7 +155,7 @@ public class ContactHelper extends HelperBase {
         return driver.findElements(By.name("selected[]")).size();
     }
 
-    public List<ContactData> getContactList() {
+    public List<ContactData> list() {
         List<ContactData> contacts = new ArrayList<ContactData>();
         List<WebElement> elements = driver.findElements(By.cssSelector("tr[name='entry']"));
         for(WebElement element : elements){
@@ -163,7 +168,7 @@ public class ContactHelper extends HelperBase {
         return contacts;
     }
 
-    public void modifyContact(int index) {
+    public void modify(int index) {
         driver.findElements(By.cssSelector("img[alt=\"Edit\"]")).get(index).click();
     }
 }

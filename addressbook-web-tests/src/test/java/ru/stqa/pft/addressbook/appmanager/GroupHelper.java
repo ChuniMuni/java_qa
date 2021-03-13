@@ -14,7 +14,7 @@ public class GroupHelper extends HelperBase {
         super(driver);
     }
 
-    public void returnToGroupPage() {
+    public void groupPage() {
         click(By.linkText("group page"));
     }
 
@@ -48,19 +48,25 @@ public class GroupHelper extends HelperBase {
         click(By.name("update"));
     }
 
-    public void createGroup(GroupData group) {
+    public void create(GroupData group) {
         initGroupCreation();
         fillGroupForm(group);
         submitGroupCreation();
-        returnToGroupPage();
+        groupPage();
     }
 
-    public void modifyGroup(int index, GroupData group) {
+    public void modify(int index, GroupData group) {
         selectGroup(index);
         initGroupModification();
         fillGroupForm(group);
         submitGroupModification();
-        returnToGroupPage();
+        groupPage();
+    }
+
+    public void delete(int index) {
+        selectGroup(index);
+        deletionSelectedGroups();
+        groupPage();
     }
 
     public boolean isThereAGroup() {
@@ -71,7 +77,7 @@ public class GroupHelper extends HelperBase {
         return driver.findElements(By.name("selected[]")).size();
     }
 
-    public List<GroupData> getGroupList() {
+    public List<GroupData> list() {
         List<GroupData> groups = new ArrayList<GroupData>();
         List<WebElement> elemets = driver.findElements(By.cssSelector("span.group"));
         for (WebElement element : elemets) {
