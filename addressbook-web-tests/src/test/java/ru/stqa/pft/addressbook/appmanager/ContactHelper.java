@@ -99,11 +99,11 @@ public class ContactHelper extends HelperBase {
     }
 
     public void updateNewContact() {
-      click(By.cssSelector("input:nth-child(86)"));
+        click(By.xpath("(//input[@name='update'])[2]"));
     }
 
     public void editContact() {
-        click(By.cssSelector("tr:nth-child(2) > .center:nth-child(8) img"));
+        click(By.xpath("//img[@alt='Edit']"));
     }
 
     public void newGroup(final String group, boolean creation) {
@@ -120,12 +120,11 @@ public class ContactHelper extends HelperBase {
     }
 
     public void selectContact(int index) {
-        driver.findElements(By.name("selected[]")).get(index).click();
+        driver.findElements(By.xpath("//img[@alt='Edit']")).get(index).click();
     }
 
     public void deleteContact() {
-      click(By.cssSelector(".left:nth-child(8) > input"));
-      confirm();
+        click(By.xpath("(//input[@name='update'])[3]"));
     }
 
     private void confirm() {
@@ -156,5 +155,9 @@ public class ContactHelper extends HelperBase {
             contacts.add(contact);
         }
         return contacts;
+    }
+
+    public void modifyContact(int index) {
+        driver.findElements(By.cssSelector("img[alt=\"Edit\"]")).get(index).click();
     }
 }
