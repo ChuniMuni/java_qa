@@ -136,6 +136,12 @@ public class ContactHelper extends HelperBase {
         createNewContact();
     }
 
+    public void modifyContact(int index, ContactData contact) {
+        selectContact(index);
+        addNewContact(contact, false);
+        updateNewContact();
+    }
+
     public boolean isThereAContact() {
         return isElementPresent(By.xpath("(//input[@name='selected[]'])"));
     }
