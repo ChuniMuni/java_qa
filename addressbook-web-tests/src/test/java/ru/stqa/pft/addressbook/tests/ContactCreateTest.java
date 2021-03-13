@@ -1,7 +1,7 @@
 package ru.stqa.pft.addressbook.tests;
 
 import org.junit.Assert;
-import org.junit.Test;
+import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
 
 import java.util.Comparator;
